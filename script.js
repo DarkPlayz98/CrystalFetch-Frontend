@@ -1,7 +1,7 @@
 let selectedFormat = "mp4";
 
 // Put your RENDER backend URL here (Make sure there is no slash at the very end)
-const API_BASE = "https://YOUR-APP-NAME.onrender.com"; 
+const API_BASE = "https://crystalfetch-backend.onrender.com"; 
 
 const urlInput = document.getElementById("urlInput");
 const fetchBtn = document.getElementById("fetchBtn");
