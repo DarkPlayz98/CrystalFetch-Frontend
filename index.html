@@ -3,40 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CrystalFetch</title>
+  <meta name="description" content="Universal media downloader for YouTube, TikTok, Instagram, and more." />
+  <meta name="theme-color" content="#050816" />
+  <title>CrystalFetch | Universal Downloader</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg-glow glow-1"></div>
-  <div class="bg-glow glow-2"></div>
+  <!-- Decorative background elements -->
+  <div class="bg-glow glow-1" aria-hidden="true"></div>
+  <div class="bg-glow glow-2" aria-hidden="true"></div>
 
   <main class="app">
     <section class="card">
-      <div class="brand">
-        <div class="logo">CF</div>
+      
+      <header class="brand">
+        <div class="logo">
+          <!-- Download Icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </div>
         <div>
           <h1>CrystalFetch</h1>
-          <p>Direct media downloader</p>
+          <p>Universal media downloader</p>
         </div>
+      </header>
+
+      <div class="input-group">
+        <label for="urlInput" class="label">Media URL</label>
+        <input 
+          id="urlInput" 
+          class="input" 
+          type="url" 
+          placeholder="Paste YouTube, TikTok, IG, FB link..." 
+          required
+          autocomplete="off"
+        />
+        <small class="hint-text">Supports YouTube, TikTok, Instagram, X, and direct links.</small>
       </div>
 
-      <label class="label">Media URL</label>
-      <input id="urlInput" class="input" type="text" placeholder="Paste direct .mp4, .mp3, .mov, .mkv link" />
+      <!-- Format Selection -->
+      <fieldset class="formats" role="radiogroup" aria-label="Media Format">
+        <button class="format-btn active" data-format="mp4" role="radio" aria-checked="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+            <line x1="7" y1="2" x2="7" y2="22"></line>
+            <line x1="17" y1="2" x2="17" y2="22"></line>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <line x1="2" y1="7" x2="7" y2="7"></line>
+            <line x1="2" y1="17" x2="7" y2="17"></line>
+            <line x1="17" y1="17" x2="22" y2="17"></line>
+            <line x1="17" y1="7" x2="22" y2="7"></line>
+          </svg>
+          MP4 Video
+        </button>
+        <button class="format-btn" data-format="mp3" role="radio" aria-checked="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: text-bottom;">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+          </svg>
+          MP3 Audio
+        </button>
+      </fieldset>
 
-      <div class="formats">
-        <button class="format-btn active" data-format="mp4">MP4 Video</button>
-        <button class="format-btn" data-format="mp3">MP3 Audio</button>
-      </div>
+      <button id="fetchBtn" class="fetch-btn">
+        Fetch Media
+      </button>
 
-      <button id="fetchBtn" class="fetch-btn">Fetch</button>
-
-      <div class="progress-wrap">
+      <!-- Progress Tracking -->
+      <div class="progress-wrap" aria-hidden="true">
         <div id="progressBar" class="progress-bar"></div>
       </div>
 
-      <p id="statusText" class="status">Ready</p>
+      <p id="statusText" class="status" aria-live="polite">Waiting for URL...</p>
 
-      <a id="downloadLink" class="download-link hidden" href="#" download>Download file</a>
+      <a id="downloadLink" class="download-link hidden" href="#" download>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: text-bottom;">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download File
+      </a>
+      
     </section>
   </main>
 
