@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrystalFetch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <main class="app">
+    <section class="card">
+      <div class="brand">
+        <div class="logo">CF</div>
+        <div>
+          <h1>CrystalFetch</h1>
+          <p>Direct media downloader</p>
+        </div>
+      </div>
+
+      <label class="label">Media URL</label>
+      <input id="urlInput" class="input" type="text" placeholder="Paste direct .mp4, .mp3, .mov, .mkv link" />
+
+      <div class="formats">
+        <button class="format-btn active" data-format="mp4">MP4 Video</button>
+        <button class="format-btn" data-format="mp3">MP3 Audio</button>
+      </div>
+
+      <button id="fetchBtn" class="fetch-btn">Fetch</button>
+
+      <div class="progress-wrap">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+
+      <p id="statusText" class="status">Ready</p>
+
+      <a id="downloadLink" class="download-link hidden" href="#" download>Download file</a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
